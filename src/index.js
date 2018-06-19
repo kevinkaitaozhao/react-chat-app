@@ -4,5 +4,18 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+//redux imports
+import { Provider } from 'react-redux'
+import { createStore } from 'react-redux'
+
+import chat from './reducers'
+
+const store = createStore(chat)
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
 registerServiceWorker();
